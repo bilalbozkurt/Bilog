@@ -1,0 +1,17 @@
+<ng-container *ngFor="let post of blogPosts">
+    <div class="post-card">
+        <div class="row">
+            <div class="col text-start">
+                {{post.title}}
+            </div>
+            <div class="col text-end">
+                {{post.timeCreated | date:'longDate'}}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                {{post.content}}
+            </div>
+        </div>
+    </div>
+</ng-container>

@@ -1,9 +1,22 @@
-var builder = WebApplication.CreateBuilder(args);
+using bilog.Data;
+using bilog.Services.BlogPostService;
+using Microsoft.EntityFrameworkCore;
 
+var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
-builder.Services.AddControllersWithViews();
+// builder.Services.AddCors(options =>
+// {
+//     options.AddPolicy(name: "ApiCorsPolicy",
+//                       builder =>
+//                       {
+//                           builder.AllowAnyOrigin();
+//                       });
+// });
 
+builder.Services.AddControllersWithViews();
+builder.Services.AddDbContext<DataContext>(x => x.UseNpgsql(builder.Configuration.GetConnectionString("RemoteConnection"), options => options.EnableRetryOnFailure()));
+builder.Services.AddScoped<IBlogPostService, BlogPostService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -14,14 +27,17 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
 app.UseRouting();
+
+// app.UseCors("ApiCorsPolicy");
+
+app.UseStaticFiles();
 
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller}/{action=Index}/{id?}");
+    pattern: "{controller}");
 
-app.MapFallbackToFile("index.html");;
+app.MapFallbackToFile("index.html"); ;
 
 app.Run();
