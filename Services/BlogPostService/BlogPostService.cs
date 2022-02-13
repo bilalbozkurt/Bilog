@@ -17,7 +17,7 @@ namespace bilog.Services.BlogPostService
             ServiceResponse<List<BlogPost>> response = new ServiceResponse<List<BlogPost>>();
             try
             {
-                var blogPosts = await _context.BlogPosts.ToListAsync();
+                var blogPosts = await _context.BlogPosts.OrderByDescending(bp => bp.TimeCreated).ToListAsync();
                 if (blogPosts.Count <= 0)
                 {
                     response.Success = false;

@@ -1,6 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
 /* Provide sufficient contrast against white background */
+:root {
+  --text-color: #000000;
+  --link-color: #000000;
+  --link-hover-color: #3e3e3e;
+}
+
+
 a {
   color: #0366d6;
 }
@@ -15,7 +22,55 @@ code {
   border-color: #1861ac;
 }
 
-
 .post-card {
-  border: 1px solid black;
+  padding: 2%;
+  border: 1px solid rgb(0, 0, 0, 0.125);
+  margin-bottom: 2%;
+  overflow: hidden;
+}
+
+.post-card a {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+.post-card a:hover {
+  color: var(--link-hover-color);
+}
+
+span.post-title {
+  font-weight: 600;
+}
+
+span.post-title a {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+span.post-title a:hover {
+  color: var(--link-hover-color);
+}
+
+.post-card-header {
+  padding-bottom: 2%;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.125);
+}
+
+.post-card-content {
+  padding-top: 2%;
+}
+
+.post-card-featured-image {
+  height: 300px;
+  /* [1.1] Set it as per your need */
+  overflow: hidden;
+  /* [1.2] Hide the overflowing of child elements */
+}
+
+.post-card-featured-image img {
+  transition: transform .5s ease;
+}
+
+.post-card:hover img {
+  transform: scale(1.1);
 }

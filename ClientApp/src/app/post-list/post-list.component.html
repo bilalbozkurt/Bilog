@@ -1,17 +1,38 @@
-<ng-container *ngFor="let post of blogPosts">
+﻿<div class="col">
+  <ng-container *ngFor="let post of blogPosts">
     <div class="post-card">
+      <div class="post-card-header">
         <div class="row">
-            <div class="col text-start">
+          <div class="col text-start">
+            <span class="post-title">
+              <a href="">
                 {{post.title}}
-            </div>
-            <div class="col text-end">
-                {{post.timeCreated | date:'longDate'}}
-            </div>
+              </a>
+            </span>
+          </div>
+          <div class="col text-end">
+            {{post.timeCreated | date:'longDate'}}
+          </div>
         </div>
+      </div>
+      <div class="post-card-featured-image" style="overflow:hidden;">
+        <a [routerLink]="['/post/post.link']">
+          <img [src]="['../../assets/Uploaded/'+post.featuredImage]" alt="" class="img-fluid">
+        </a>
+      </div>
+      <div class="post-card-content">
         <div class="row">
-            <div class="col">
-                {{post.content}}
-            </div>
+          <div class="col">
+            <span class="post-content">
+              {{ (post.content.length>500) ? (post.content | slice:0:500)+'...':(post.content) }}
+              <ng-container *ngIf="post.content.length > 500">
+                <a [routerLink]="['/post/post.link']">
+                  (Devamını oku)</a>
+              </ng-container>
+            </span>
+          </div>
         </div>
+      </div>
     </div>
-</ng-container>
+  </ng-container>
+</div>
