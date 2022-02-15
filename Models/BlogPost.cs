@@ -8,5 +8,6 @@ namespace bilog.Models
         public DateTime TimeCreated { get; set; }
         public string Link { get; set; }
         public string FeaturedImage { get; set; }
+        public List<Category> Categories { get; set; }
     }
 }
