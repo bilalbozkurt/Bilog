@@ -18,12 +18,9 @@ export class PostListComponent implements OnInit {
   getAllBlogPosts() {
     this._postListService.GetAllPosts().subscribe(
       (response) => {
-        console.log(response)
         if (!response.success) {
-          console.log(response.message);
         }
         else {
-          console.log(response.data);
           this.blogPosts = response.data;
         }
       }

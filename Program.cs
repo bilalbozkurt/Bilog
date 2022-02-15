@@ -1,6 +1,11 @@
+using System.Text;
 using bilog.Data;
 using bilog.Services.BlogPostService;
+using bilog.Services.UserService;
+using Bilog.Utility;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -15,8 +20,29 @@ var builder = WebApplication.CreateBuilder(args);
 // });
 
 builder.Services.AddControllersWithViews();
+builder.Services.AddSingleton<IRegexUtilities, RegexUtilities>();
+
 builder.Services.AddDbContext<DataContext>(x => x.UseNpgsql(builder.Configuration.GetConnectionString("RemoteConnection"), options => options.EnableRetryOnFailure()));
+
+builder.Services.AddScoped<IUserService, UserService>();
+
 builder.Services.AddScoped<IBlogPostService, BlogPostService>();
+
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(builder.Configuration.GetSection("AppSettings:Token").Value)),
+        ValidateIssuer = false,
+        ValidateAudience = false
+    };
+});
+builder.Services.AddControllersWithViews()
+    .AddNewtonsoftJson(options =>
+    options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+);
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -28,6 +54,9 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
+app.UseAuthentication();
+
+app.UseAuthorization();
 
 // app.UseCors("ApiCorsPolicy");
 

@@ -18,5 +18,11 @@ namespace bilog.Controllers
         {
             return Ok(await _blogPostService.GetAllPosts());
         }
+
+        [HttpGet("{link}")]
+        public async Task<IActionResult> GetPostByLink(string link)
+        {
+            return Ok(await _blogPostService.GetSinglePostByLink(link));
+        }
     }
 }
