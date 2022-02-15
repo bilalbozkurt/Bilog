@@ -7,7 +7,6 @@
   --link-hover-color: #3e3e3e;
 }
 
-
 a {
   color: #0366d6;
 }
@@ -20,6 +19,66 @@ code {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
+}
+
+.post-card-thumbnail {
+  padding: 2%;
+  border: 1px solid rgb(0, 0, 0, 0.125);
+  margin-bottom: 2%;
+  overflow: hidden;
+}
+
+.post-card-thumbnail a {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+.post-card-thumbnail a:hover {
+  color: var(--link-hover-color);
+}
+
+span.post-title {
+  font-weight: 600;
+}
+
+span.post-title a {
+  text-decoration: none;
+  color: var(--link-color);
+}
+
+span.post-title a:hover {
+  color: var(--link-hover-color);
+}
+
+.post-card-thumbnail-header {
+  padding-bottom: 2%;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.125);
+}
+
+.post-card-thumbnail-content {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.post-card-thumbnail-footer {
+  padding-top: 2%;
+  border-top: 1px solid rgb(0, 0, 0, 0.125);
+}
+
+.post-card-thumbnail-featured-image {
+  padding-top: 2%;
+  height: 300px;
+  /* [1.1] Set it as per your need */
+  overflow: hidden;
+  /* [1.2] Hide the overflowing of child elements */
+}
+
+.post-card-thumbnail-featured-image img {
+  transition: transform 0.5s ease;
+}
+
+.post-card-thumbnail:hover img {
+  transform: scale(1.1);
 }
 
 .post-card {
@@ -57,20 +116,28 @@ span.post-title a:hover {
 }
 
 .post-card-content {
+  text-justify: inter-word;
   padding-top: 2%;
+  padding-bottom: 2%;
+}
+
+.post-card-footer {
+  padding-top: 2%;
+  border-top: 1px solid rgb(0, 0, 0, 0.125);
 }
 
 .post-card-featured-image {
-  height: 300px;
+  padding-top: 2%;
+  /* height: 300px; */
   /* [1.1] Set it as per your need */
-  overflow: hidden;
+  /* overflow: hidden; */
   /* [1.2] Hide the overflowing of child elements */
 }
 
 .post-card-featured-image img {
-  transition: transform .5s ease;
+  /* transition: transform 0.5s ease; */
 }
 
 .post-card:hover img {
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
 }

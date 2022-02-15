@@ -17,7 +17,7 @@ namespace bilog.Services.BlogPostService
             ServiceResponse<List<BlogPost>> response = new ServiceResponse<List<BlogPost>>();
             try
             {
-                var blogPosts = await _context.BlogPosts.OrderByDescending(bp => bp.TimeCreated).ToListAsync();
+                var blogPosts = await _context.BlogPosts.Include(bp => bp.Categories).OrderByDescending(bp => bp.TimeCreated).ToListAsync();
                 if (blogPosts.Count <= 0)
                 {
                     response.Success = false;
@@ -31,8 +31,9 @@ namespace bilog.Services.BlogPostService
             }
             catch (System.Exception)
             {
-
-                throw;
+                response.Success = false;
+                response.Message = "Error";
+                return response;
             }
 
             return response;
@@ -43,12 +44,50 @@ namespace bilog.Services.BlogPostService
             ServiceResponse<BlogPost> response = new ServiceResponse<BlogPost>();
             try
             {
-
+                var blogPost = await _context.BlogPosts.Where(bp => bp.Id == id).Include(bp => bp.Categories).OrderByDescending(bp => bp.TimeCreated).FirstOrDefaultAsync();
+                if (blogPost == null)
+                {
+                    response.Success = false;
+                    response.Message = "No post found";
+                    return response;
+                }
+                else
+                {
+                    response.Data = blogPost;
+                }
             }
             catch (System.Exception)
             {
+                response.Success = false;
+                response.Message = "Error";
+                return response;
+            }
 
-                throw;
+            return response;
+        }
+
+        public async Task<ServiceResponse<BlogPost>> GetSinglePostByLink(string link)
+        {
+            ServiceResponse<BlogPost> response = new ServiceResponse<BlogPost>();
+            try
+            {
+                var blogPost = await _context.BlogPosts.Where(bp => bp.Link == link).Include(bp => bp.Categories).OrderByDescending(bp => bp.TimeCreated).FirstOrDefaultAsync();
+                if (blogPost == null)
+                {
+                    response.Success = false;
+                    response.Message = "No post found";
+                    return response;
+                }
+                else
+                {
+                    response.Data = blogPost;
+                }
+            }
+            catch (System.Exception)
+            {
+                response.Success = false;
+                response.Message = "Error";
+                return response;
             }
 
             return response;

@@ -1,1 +1,49 @@
-<p>single-post works!</p>
+<div class="row justify-content-between">
+    <div class="col">
+        <!-- Sol -->
+    </div>
+    <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+        <ng-container *ngIf="blogPost">
+            <div class="post-card">
+                <div class="post-card-header">
+                    <div class="row">
+                        <div class="col text-start">
+                            <span class="post-title">
+                                {{blogPost.title}}
+                            </span>
+                        </div>
+                        <div class="col text-end">
+                            {{blogPost.timeCreated | date:'longDate'}}
+                        </div>
+                    </div>
+                </div>
+                <div class="post-card-featured-image text-center" style="overflow:hidden;">
+                    <img [src]="['../../assets/Uploaded/'+blogPost.featuredImage]" alt="" class="img-fluid">
+                </div>
+                <div class="post-card-content">
+                    <div class="row">
+                        <div class="col">
+                            <span class="post-content" [innerHTML]="blogPost.content"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="post-card-footer">
+                    <div class="row">
+                        <div class="col">
+                            Kategoriler:
+                            <ng-container *ngFor="let category of blogPost.categories">
+                                <a [routerLink]="['/categories/'+category.link]">
+                                    {{category.name}}
+                                </a>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+
+    <div class="col">
+        <!-- Sağ -->
+    </div>
+</div>
