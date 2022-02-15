@@ -9,5 +9,7 @@ namespace bilog.Models
         public string Link { get; set; }
         public string FeaturedImage { get; set; }
         public List<Category> Categories { get; set; }
+        public User Author { get; set; }
+
     }
 }
