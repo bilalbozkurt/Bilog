@@ -16,12 +16,12 @@
             </div>
           </div>
         </div>
-        <div class="post-card-thumbnail-featured-image" style="overflow:hidden;">
+        <div class="post-card-thumbnail-featured-image">
           <a [routerLink]="['/post/'+post.link]">
             <img [src]="['../../assets/Uploaded/'+post.featuredImage]" alt="" class="img-fluid">
           </a>
         </div>
-        <div class="post-card-thumbnail-content">
+        <div class=" post-card-thumbnail-content">
           <div class="row">
             <div class="col">
               <span class="post-content" [innerHTML]="(post.content.length>500) ? (post.content | slice:0:500)+'...':(post.content)">
