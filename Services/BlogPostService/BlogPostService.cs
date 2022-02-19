@@ -92,5 +92,40 @@ namespace bilog.Services.BlogPostService
 
             return response;
         }
+
+        public async Task<ServiceResponse<List<BlogPost>>> SearchPosts(string searchInput)
+        {
+            ServiceResponse<List<BlogPost>> response = new ServiceResponse<List<BlogPost>>();
+            try
+            {
+                System.Console.WriteLine(searchInput);
+                if (searchInput.Length <= 0)
+                {
+                    response.Success = false;
+                    response.Message = "No input provided.";
+                    return response;
+                }
+
+                var blogPosts = await _context.BlogPosts.Where(bp => bp.Title.ToLower().IndexOf(searchInput.ToLower()) != -1).Include(bp => bp.Categories).OrderByDescending(bp => bp.TimeCreated).ToListAsync();
+                if (blogPosts == null)
+                {
+                    response.Success = false;
+                    response.Message = "No post found";
+                    return response;
+                }
+                else
+                {
+                    response.Data = blogPosts;
+                }
+            }
+            catch (System.Exception)
+            {
+                response.Success = false;
+                response.Message = "Error";
+                return response;
+            }
+
+            return response;
+        }
     }
 }
