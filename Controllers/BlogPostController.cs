@@ -24,5 +24,11 @@ namespace bilog.Controllers
         {
             return Ok(await _blogPostService.GetSinglePostByLink(link));
         }
+
+        [HttpGet("search/{searchInput}")]
+        public async Task<IActionResult> SearchPosts(string searchInput)
+        {
+            return Ok(await _blogPostService.SearchPosts(searchInput));
+        }
     }
 }
