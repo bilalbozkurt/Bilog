@@ -3,7 +3,9 @@
 
 # Private Files
 *.Development.json
-
+ 
+#Migrations
+Migrations/
 
 # User-specific files
 *.suo
