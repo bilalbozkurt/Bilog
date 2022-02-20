@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { NavMenuService } from './nav-menu.service';
 
 @Component({
   selector: 'app-nav-menu',
@@ -6,6 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./nav-menu.component.css']
 })
 export class NavMenuComponent {
+  /**
+   *
+   */
+  searchInput: string = "";
+  constructor() {
+
+  }
+
   isExpanded = false;
 
   collapse() {
@@ -15,4 +24,5 @@ export class NavMenuComponent {
   toggle() {
     this.isExpanded = !this.isExpanded;
   }
+
 }
