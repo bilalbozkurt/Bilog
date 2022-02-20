@@ -12,6 +12,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { PostListComponent } from './post-list/post-list.component';
 import { SinglePostComponent } from './single-post/single-post.component';
 import { AppRoutingModule } from './app-routing.module';
+import { SearchPageComponent } from './search-page/search-page.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { AppRoutingModule } from './app-routing.module';
     CounterComponent,
     FetchDataComponent,
     PostListComponent,
-    SinglePostComponent
+    SinglePostComponent,
+    SearchPageComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
