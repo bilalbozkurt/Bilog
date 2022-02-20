@@ -6,9 +6,8 @@ export const environment = {
   production: false,
   apiUrl: "https://localhost:7291/",
   getAllPosts: "api/blogpost/getall/",
-  getPostByLink: "api/blogpost/"
-
-
+  getPostByLink: "api/blogpost/",
+  searchPosts: "api/blogpost/search/"
 };
 
 /*

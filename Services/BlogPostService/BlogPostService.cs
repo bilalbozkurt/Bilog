@@ -98,7 +98,7 @@ namespace bilog.Services.BlogPostService
             ServiceResponse<List<BlogPost>> response = new ServiceResponse<List<BlogPost>>();
             try
             {
-                System.Console.WriteLine(searchInput);
+                searchInput = searchInput.Trim();
                 if (searchInput.Length <= 0)
                 {
                     response.Success = false;

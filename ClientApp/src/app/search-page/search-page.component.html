@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+  <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12">
+    <div class="alert alert-secondary" role="alert">
+      <strong>{{searchText}}</strong> için bulunan sonuçlar:
+    </div>
+    <ng-container *ngFor="let post of blogPosts">
+      <div class="post-card-thumbnail">
+        <div class="post-card-thumbnail-header">
+          <div class="row">
+            <div class="col text-start">
+              <span class="post-title">
+                <a [routerLink]="['/post/'+post.link]">
+                  {{post.title}}
+                </a>
+              </span>
+            </div>
+            <div class="col text-end">
+              {{post.timeCreated | date:'longDate'}}
+            </div>
+          </div>
+        </div>
+        <div class="post-card-thumbnail-featured-image">
+          <a [routerLink]="['/post/'+post.link]">
+            <img [src]="['../../assets/Uploaded/'+post.featuredImage]" alt="" class="img-fluid">
+          </a>
+        </div>
+        <div class=" post-card-thumbnail-content">
+          <div class="row">
+            <div class="col">
+              <span class="post-content" [innerHTML]="(post.content.length>500) ? (post.content | slice:0:500)+'...':(post.content)">
+                <!-- <ng-container *ngIf="post.content.length > 500">
+                    <a [routerLink]="['/post/'+post.link]">
+                      (Devamını oku)</a>
+                  </ng-container> -->
+              </span>
+            </div>
+          </div>
+        </div>
+        <div class="post-card-thumbnail-footer">
+          <div class="row">
+            <div class="col">
+              Kategoriler:
+              <ng-container *ngFor="let category of post.categories">
+                <a [routerLink]="['/categories/'+category.link]">
+                  {{category.name}}
+                </a>
+              </ng-container>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </div>
+</div>
