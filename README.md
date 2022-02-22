@@ -1,6 +1,6 @@
 # Bilog
 Bilo's personal Bilog!
-
+![Bilog](https://raw.githubusercontent.com/bilalbozkurt/Bilog/master/Bilog.gif "Bilog")
 
 - .Net Core as backend (main directory)
 - Angular as frontend (ClientApp)
