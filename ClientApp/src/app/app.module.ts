@@ -13,6 +13,7 @@ import { PostListComponent } from './post-list/post-list.component';
 import { SinglePostComponent } from './single-post/single-post.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SearchPageComponent } from './search-page/search-page.component';
+import { HashtagPageComponent } from './hashtag-page/hashtag-page.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SearchPageComponent } from './search-page/search-page.component';
     FetchDataComponent,
     PostListComponent,
     SinglePostComponent,
-    SearchPageComponent
+    SearchPageComponent,
+    HashtagPageComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

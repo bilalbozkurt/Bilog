@@ -8,5 +8,7 @@ namespace bilog.Services.BlogPostService
         Task<ServiceResponse<BlogPost>> GetSinglePostByLink(string link);
         Task<ServiceResponse<List<BlogPost>>> GetAllPosts();
         Task<ServiceResponse<List<BlogPost>>> SearchPosts(string searchInput);
+        Task<ServiceResponse<List<BlogPost>>> SearchHashtags(string searchInput);
+
     }
 }

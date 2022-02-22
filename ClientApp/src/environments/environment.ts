@@ -7,7 +7,9 @@ export const environment = {
   apiUrl: "https://localhost:7291/",
   getAllPosts: "api/blogpost/getall/",
   getPostByLink: "api/blogpost/",
-  searchPosts: "api/blogpost/search/"
+  searchPosts: "api/blogpost/search/",
+  searchHashtags: "api/blogpost/hashtag/"
+
 };
 
 /*
