@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { NavMenuService } from './nav-menu.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class NavMenuComponent {
    *
    */
   searchInput: string = "";
-  constructor() {
+  constructor(private _router: Router) {
 
   }
 
@@ -23,6 +24,16 @@ export class NavMenuComponent {
 
   toggle() {
     this.isExpanded = !this.isExpanded;
+  }
+
+  search() {
+    if (this.searchInput[0] == '#') {
+      this.searchInput = this.searchInput.substring(1, this.searchInput.length);
+      this._router.navigate(["/hashtag/" + this.searchInput]);
+    }
+    else {
+      this._router.navigate(["/search/" + this.searchInput]);
+    }
   }
 
 }

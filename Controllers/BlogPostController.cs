@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace bilog.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/[controller]/")]
     public class BlogPostController : ControllerBase
     {
         private readonly IBlogPostService _blogPostService;
@@ -29,6 +29,11 @@ namespace bilog.Controllers
         public async Task<IActionResult> SearchPosts(string searchInput)
         {
             return Ok(await _blogPostService.SearchPosts(searchInput));
+        }
+        [HttpGet("hashtag/{searchInput}")]
+        public async Task<IActionResult> SearchHashtagPosts(string searchInput)
+        {
+            return Ok(await _blogPostService.SearchHashtags(searchInput));
         }
     }
 }

@@ -4,12 +4,15 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { SinglePostComponent } from './single-post/single-post.component';
 import { SearchPageComponent } from './search-page/search-page.component';
+import { HashtagPageComponent } from './hashtag-page/hashtag-page.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'post/:postLink', component: SinglePostComponent },
   { path: 'search/:searchInput', component: SearchPageComponent },
+  { path: 'hashtag/:searchInput', component: HashtagPageComponent },
+
 ]
 @NgModule({
   declarations: [],

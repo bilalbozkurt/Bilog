@@ -6,13 +6,10 @@ import { ServiceResponse } from 'src/shared/service-response.model';
 @Injectable({
   providedIn: 'root'
 })
-export class SearchPageService {
+export class HashtagPageService {
 
   constructor(private _http: HttpClient, @Inject('BASE_URL') private baseUrl: string) { }
 
-  SearchPosts(searchInput: string) {
-    return this._http.get<ServiceResponse<any>>(this.baseUrl + environment.searchPosts + searchInput);
-  }
   SearchHashtags(searchInput: string) {
     return this._http.get<ServiceResponse<any>>(this.baseUrl + environment.searchHashtags + searchInput);
   }

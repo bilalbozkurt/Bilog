@@ -41,7 +41,7 @@
             <div class="col">
               Kategoriler:
               <ng-container *ngFor="let category of post.categories">
-                <a [routerLink]="['/categories/'+category.link]">
+                <a [routerLink]="['/hashtag/'+category.link]">
                   {{category.name}}
                 </a>
               </ng-container>
