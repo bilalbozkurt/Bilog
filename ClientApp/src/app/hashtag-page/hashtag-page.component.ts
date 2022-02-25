@@ -23,6 +23,7 @@ export class HashtagPageComponent implements OnInit {
 
   searchPosts() {
     if (this.searchText.length <= 0) {
+      this.blogPosts = [];
       return;
     }
     this._searchPageService.SearchHashtags(this.searchText).subscribe((response) => {
@@ -30,6 +31,7 @@ export class HashtagPageComponent implements OnInit {
         this.blogPosts = response.data;
       }
       else {
+        this.blogPosts = [];
         console.log(response.message);
       }
     })

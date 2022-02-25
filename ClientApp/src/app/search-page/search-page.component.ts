@@ -23,6 +23,7 @@ export class SearchPageComponent implements OnInit {
 
   searchPosts() {
     if (this.searchText.length <= 0) {
+      this.blogPosts = [];
       return;
     }
 
@@ -31,6 +32,7 @@ export class SearchPageComponent implements OnInit {
         this.blogPosts = response.data;
       }
       else {
+        this.blogPosts = [];
         console.log(response.message);
       }
     })
