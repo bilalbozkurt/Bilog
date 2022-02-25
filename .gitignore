@@ -3,6 +3,8 @@
 
 # Private Files
 *.Development.json
+appsettings.json
+
  
 #Migrations
 Migrations/
