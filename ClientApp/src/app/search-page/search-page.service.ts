@@ -13,7 +13,4 @@ export class SearchPageService {
   SearchPosts(searchInput: string) {
     return this._http.get<ServiceResponse<any>>(this.baseUrl + environment.searchPosts + searchInput);
   }
-  SearchHashtags(searchInput: string) {
-    return this._http.get<ServiceResponse<any>>(this.baseUrl + environment.searchHashtags + searchInput);
-  }
 }

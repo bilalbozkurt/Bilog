@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BlogPost } from '../post-list/post-model';
 import { SearchPageService } from './search-page.service';
 
@@ -12,12 +12,26 @@ export class SearchPageComponent implements OnInit {
   searchText: string = "";
   blogPosts: BlogPost[] = [];
 
-  constructor(private _searchPageService: SearchPageService, private _route: ActivatedRoute) { }
+  constructor(private _searchPageService: SearchPageService, private _route: ActivatedRoute, private _router: Router) { }
 
   ngOnInit(): void {
     this._route.paramMap.subscribe((params) => {
       this.searchText = params.get('searchInput') ?? '';
-      this.searchPosts();
+      let retFlag = false;
+      let notAllowedChars = ['!', ',', '=', '-', '<', '>', '*', '/']
+      notAllowedChars.forEach(element => { // A very advanced super-duper sanitizer
+        if (this.searchText.indexOf(element) != -1) {
+          retFlag = true;
+        }
+      });
+
+      if (retFlag) {
+        this._router.navigate(["/"]);
+        return;
+      }
+      else {
+        this.searchPosts();
+      }
     })
   }
 
