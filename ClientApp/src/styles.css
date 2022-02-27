@@ -144,3 +144,11 @@ span.post-title a:hover {
 .post-card:hover img {
   /* transform: scale(1.1); */
 }
+
+.github-icon {
+  
+  fill: #000000;
+}
+.github-icon :hover {
+  fill: #484848;
+}
