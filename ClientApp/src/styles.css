@@ -149,6 +149,18 @@ span.post-title a:hover {
   
   fill: #000000;
 }
-.github-icon :hover {
+.github-icon:hover {
   fill: #484848;
+}
+
+.post-footer-categories {
+  font-weight: 600;
+}
+
+.hashtag-link {
+  color: #0053b1 !important;
+}
+
+.hashtag-link:hover {
+  color: #002d61 !important;
 }

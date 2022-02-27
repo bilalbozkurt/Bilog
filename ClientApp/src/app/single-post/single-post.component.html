@@ -27,9 +27,11 @@
                 <div class="post-card-footer">
                     <div class="row">
                         <div class="col">
-                            Kategoriler:
+                                          <span class="post-footer-categories">
+                Kategoriler:
+              </span>
                             <ng-container *ngFor="let category of blogPost.categories">
-                                <a [routerLink]="['/hashtag/'+category.link]">
+                                <a [routerLink]="['/hashtag/'+category.link]" class="hashtag-link">
                                     {{category.name}}
                                 </a>
                             </ng-container>
