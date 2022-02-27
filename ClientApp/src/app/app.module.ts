@@ -14,6 +14,17 @@ import { SinglePostComponent } from './single-post/single-post.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { HashtagPageComponent } from './hashtag-page/hashtag-page.component';
+import { registerLocaleData } from '@angular/common';
+import localeTr from '@angular/common/locales/tr';
+
+// Localization. To change to another language register the language.
+// example for Spanish,
+// import localeEs from '@angular/common/locales/es';
+// registerLocaleData(localeEs, 'es'); 
+// then use it at your pipe
+// {{ dateVariable | date:'longDate':'':'es'}}
+
+registerLocaleData(localeTr, 'tr'); 
 
 @NgModule({
   declarations: [

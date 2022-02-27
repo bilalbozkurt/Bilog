@@ -10,7 +10,8 @@
                             </span>
                         </div>
                         <div class="col text-end">
-                            {{blogPost.timeCreated | date:'longDate'}}
+                            {{blogPost.timeCreated | date:'dd LLLL yyyy':'':'tr'}}
+                            <!-- Full date with hour : dd LLLL yyyy,  HH:mm -->
                         </div>
                     </div>
                 </div>
