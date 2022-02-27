@@ -81,7 +81,7 @@ span.post-title a:hover {
 }
 
 .post-card-thumbnail:hover img {
-  transform: scale(1.05);
+  transform: scale(1.00); /* todo(bilalbozkurt): remove the effect completely*/
 }
 
 .post-card {

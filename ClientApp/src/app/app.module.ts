@@ -16,6 +16,7 @@ import { SearchPageComponent } from './search-page/search-page.component';
 import { HashtagPageComponent } from './hashtag-page/hashtag-page.component';
 import { registerLocaleData } from '@angular/common';
 import localeTr from '@angular/common/locales/tr';
+import { ContactComponent } from './contact/contact.component';
 
 // Localization. To change to another language register the language.
 // example for Spanish,
@@ -36,7 +37,8 @@ registerLocaleData(localeTr, 'tr');
     PostListComponent,
     SinglePostComponent,
     SearchPageComponent,
-    HashtagPageComponent
+    HashtagPageComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),

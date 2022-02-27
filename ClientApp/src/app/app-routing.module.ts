@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { SinglePostComponent } from './single-post/single-post.component';
 import { SearchPageComponent } from './search-page/search-page.component';
 import { HashtagPageComponent } from './hashtag-page/hashtag-page.component';
+import { ContactComponent } from './contact/contact.component';
 
 
 const routes: Routes = [
@@ -12,6 +13,8 @@ const routes: Routes = [
   { path: 'post/:postLink', component: SinglePostComponent },
   { path: 'search/:searchInput', component: SearchPageComponent },
   { path: 'hashtag/:searchInput', component: HashtagPageComponent },
+  { path: 'contact', component: ContactComponent },
+
 
 ]
 @NgModule({

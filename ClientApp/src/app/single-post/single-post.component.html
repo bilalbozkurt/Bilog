@@ -28,9 +28,9 @@
                 <div class="post-card-footer">
                     <div class="row">
                         <div class="col">
-                                          <span class="post-footer-categories">
-                Kategoriler:
-              </span>
+                            <span class="post-footer-categories">
+                                Etiketler:
+                            </span>
                             <ng-container *ngFor="let category of blogPost.categories">
                                 <a [routerLink]="['/hashtag/'+category.link]" class="hashtag-link">
                                     {{category.name}}
