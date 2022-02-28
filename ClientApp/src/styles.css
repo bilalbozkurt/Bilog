@@ -81,7 +81,7 @@ span.post-title a:hover {
 }
 
 .post-card-thumbnail:hover img {
-  transform: scale(1.05);
+  transform: scale(1.00); /* todo(bilalbozkurt): remove the effect completely*/
 }
 
 .post-card {
@@ -143,4 +143,24 @@ span.post-title a:hover {
 
 .post-card:hover img {
   /* transform: scale(1.1); */
+}
+
+.github-icon {
+  
+  fill: #000000;
+}
+.github-icon:hover {
+  fill: #484848;
+}
+
+.post-footer-categories {
+  font-weight: 600;
+}
+
+.hashtag-link {
+  color: #0053b1 !important;
+}
+
+.hashtag-link:hover {
+  color: #002d61 !important;
 }

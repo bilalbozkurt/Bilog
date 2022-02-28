@@ -12,7 +12,7 @@
               </span>
             </div>
             <div class="col text-end">
-              {{post.timeCreated | date:'longDate'}}
+              {{post.timeCreated | date:'longDate':'':'tr'}}
             </div>
           </div>
         </div>
@@ -36,9 +36,11 @@
         <div class="post-card-thumbnail-footer">
           <div class="row">
             <div class="col">
-              Kategoriler:
+              <span class="post-footer-categories">
+                Etiketler:
+              </span>
               <ng-container *ngFor="let category of post.categories">
-                <a [routerLink]="['/hashtag/'+category.link]">
+                <a [routerLink]="['/hashtag/'+category.link]" class="hashtag-link">
                   {{category.name}}
                 </a>
               </ng-container>

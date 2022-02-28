@@ -14,13 +14,14 @@
             <a class="nav-link text-dark" [routerLink]="['/contact']">İletişim</a>
           </li>
         </ul>
-        <form class="d-flex ms-0 ms-auto" standalone>
-          <input class="form-control me-2" type="search" placeholder="Ara" aria-label="Search" name="search" [(ngModel)]="searchInput">
-          <ng-container *ngIf="searchInput.length > 0">
-            <button class="btn btn-outline-success" type="submit" (click)="search()">Ara</button>
-
-          </ng-container>
-        </form>
+        <div class="d-flex ms-0 ms-auto" id="search-box">
+          <form class="d-flex" standalone>
+            <input class="form-control me-2" type="search" placeholder="Ara" aria-label="Search" name="search" [(ngModel)]="searchInput">
+            <ng-container *ngIf="searchInput.length > 0">
+              <button class="btn btn-outline-success" type="submit" (click)="search()">Ara</button>
+            </ng-container>
+          </form>
+        </div>
       </div>
     </div>
   </nav>
