@@ -25,7 +25,7 @@ import { ContactComponent } from './contact/contact.component';
 // then use it at your pipe
 // {{ dateVariable | date:'longDate':'':'es'}}
 
-registerLocaleData(localeTr, 'tr'); 
+registerLocaleData(localeTr, 'tr');
 
 @NgModule({
   declarations: [
