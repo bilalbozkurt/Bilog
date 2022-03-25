@@ -125,8 +125,6 @@ namespace bilog.Services.BlogPostService
                 }
 
                 blogPosts = category.BlogPosts;
-
-
                 if (blogPosts == null)
                 {
                     response.Success = false;

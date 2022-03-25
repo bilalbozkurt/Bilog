@@ -11,8 +11,8 @@ namespace bilog.Controllers
         public BlogPostController(IBlogPostService blogPostService)
         {
             _blogPostService = blogPostService;
-
         }
+
         [HttpGet("getall")]
         public async Task<IActionResult> GetAllBlogPosts()
         {
@@ -30,6 +30,7 @@ namespace bilog.Controllers
         {
             return Ok(await _blogPostService.SearchPosts(searchInput));
         }
+
         [HttpGet("hashtag/{searchInput}")]
         public async Task<IActionResult> SearchHashtagPosts(string searchInput)
         {

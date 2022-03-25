@@ -16,7 +16,6 @@ namespace bilog.Controllers
             _userService = userService;
         }
 
-
         [AllowAnonymous]
         [HttpPost("Register")]
         public async Task<IActionResult> Register(UserRegisterDto request)

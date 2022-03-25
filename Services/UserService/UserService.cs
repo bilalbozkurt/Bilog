@@ -20,8 +20,8 @@ namespace bilog.Services.UserService
             _configuration = configuration;
             _regexUtilities = regexUtilities;
             _context = context;
-
         }
+
         public async Task<ServiceResponse<string>> Login(string email, string password)
         {
             ServiceResponse<string> response = new ServiceResponse<string>();
@@ -58,7 +58,6 @@ namespace bilog.Services.UserService
                 {
                     response.Data = CreateToken(user);
                 }
-
             }
             catch (Exception ex)
             {
