@@ -13,7 +13,7 @@ export class SinglePostComponent implements OnInit {
 
   constructor(private _singlePostService: SinglePostService, private _route: ActivatedRoute) { }
   postLink: string = '';
-  blogPost: any;
+  blogPost: BlogPost = {} as BlogPost;
   ngOnInit(): void {
     this._route.paramMap.subscribe((params) => {
       this.postLink = params.get('postLink') ?? '';
