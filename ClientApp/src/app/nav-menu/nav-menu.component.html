@@ -8,17 +8,17 @@
       <div class="navbar-collapse collapse d-sm-inline-flex" [ngClass]="{ show: isExpanded }">
         <ul class="navbar-nav flex-grow">
           <li class="nav-item" [routerLinkActive]="['link-active']" [routerLinkActiveOptions]="{ exact: true }">
-            <a class="nav-link text-dark" [routerLink]="['/']">Anasayfa</a>
+            <a class="nav-link text-dark" [routerLink]="['/']">Home</a>
           </li>
           <li class="nav-item" [routerLinkActive]="['link-active']">
-            <a class="nav-link text-dark" [routerLink]="['/contact']">İletişim</a>
+            <a class="nav-link text-dark" [routerLink]="['/contact']">Contact</a>
           </li>
         </ul>
         <div class="d-flex ms-0 ms-auto" id="search-box">
           <form class="d-flex" standalone>
-            <input class="form-control me-2" type="search" placeholder="Ara" aria-label="Search" name="search" [(ngModel)]="searchInput">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" [(ngModel)]="searchInput">
             <ng-container *ngIf="searchInput.length > 0">
-              <button class="btn btn-outline-success" type="submit" (click)="search()">Ara</button>
+              <button class="btn btn-outline-success" type="submit" (click)="search()">Search</button>
             </ng-container>
           </form>
         </div>

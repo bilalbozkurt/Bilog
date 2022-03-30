@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
   <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-xs-12">
     <div class="alert alert-secondary" role="alert">
-      <strong>#{{searchText}}</strong> için bulunan sonuçlar:
+      Found posts for <strong>#{{searchText}}</strong>
     </div>
     <ng-container *ngFor="let post of blogPosts">
       <div class="post-card-thumbnail">
@@ -40,7 +40,7 @@
           <div class="row">
             <div class="col">
               <span class="post-footer-categories">
-                Etiketler:
+                Hashtags:
               </span>
               <ng-container *ngFor="let category of post.categories">
                 <a [routerLink]="['/hashtag/'+category.link]" class="hashtag-link">
