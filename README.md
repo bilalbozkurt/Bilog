@@ -1,4 +1,5 @@
 # Bilog
+[![CodeFactor](https://www.codefactor.io/repository/github/bilalbozkurt/bilog/badge)](https://www.codefactor.io/repository/github/bilalbozkurt/bilog)
 Bilo's personal Bilog!
 ![Bilog](https://raw.githubusercontent.com/bilalbozkurt/Bilog/master/Bilog.gif "Bilog")
 
